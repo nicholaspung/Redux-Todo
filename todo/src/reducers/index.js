@@ -1,15 +1,24 @@
-export const ADD_TODO = "ADD_TODO";
+import { ADD_TODO } from '../actions';
 
 const initializeState = {
-    todos: []
+    todos: [],
+    newTodoText: ''
 }
 
-export const reducer = (state = initializeState, action) => {
+let mapKey = 0
+export default (state = initializeState, action) => {
     switch (action.type) {
         case ADD_TODO:
             return {
                 type: ADD_TODO,
-                payload: action.payload
+                todos: [
+                    ...state.todos,
+                    {
+                        id: mapKey++,
+                        value: action.payload,
+                        completed: false
+                    }
+                ]
             }
         default:
             return state
