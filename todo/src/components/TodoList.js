@@ -4,7 +4,6 @@ import Todos from './Todos';
 import { connect } from 'react-redux';
 
 const TodoList = ({ todos }) => {
-    console.log(todos)
     return (
         <div>
             Current Todos
