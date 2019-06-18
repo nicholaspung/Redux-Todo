@@ -1,12 +1,16 @@
 import React from 'react';
 import Todos from './Todos';
+import SaveButton from './SaveButton';
 
 import { connect } from 'react-redux';
 
 const TodoList = ({ todos }) => {
     return (
         <div>
-            Current Todos
+            <div>
+                Current Todos
+                <SaveButton />
+            </div>
             <ul>
                 {todos.map(todo => <Todos todo={todo} key={todo.id} />)}
             </ul>

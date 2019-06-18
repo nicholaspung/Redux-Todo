@@ -1,10 +1,17 @@
 import { ADD_TODO, TOGGLE_TODO, DELETE_TODO } from '../actions';
 
-const initializeState = {
-    todos: []
+let data;
+if (JSON.parse(localStorage.getItem("todos"))) {
+    data = JSON.parse(localStorage.getItem("todos"))
+} else {
+    data = []
 }
 
-let mapKey = 0
+const initializeState = {
+    todos: data
+}
+
+let mapKey = initializeState.todos.length
 export default (state = initializeState, action) => {
     switch (action.type) {
         case ADD_TODO:
