@@ -3,8 +3,13 @@ import { connect } from 'react-redux';
 import { toggleTodo } from '../actions';
 
 const Todos = props => {
+    let toggle;
+    if (props.todo.completed) {
+        toggle = "completed";
+    }
+
     return (
-        <li onClick={() => props.toggleTodo(props.todo.id)}>
+        <li className={toggle} onClick={() => props.toggleTodo(props.todo.id)}>
             {props.todo.value}
         </li>
     )
