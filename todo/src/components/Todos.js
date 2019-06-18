@@ -1,11 +1,13 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { toggleTodo } from '../actions';
 
 const Todos = props => {
     return (
-        <div>
+        <li onClick={() => props.toggleTodo(props.todo.id)}>
             {props.todo.value}
-        </div>
+        </li>
     )
 }
 
-export default Todos;
+export default connect(null, { toggleTodo })(Todos);
